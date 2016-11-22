@@ -1,0 +1,113 @@
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using DataAccessMySqlProvider;
+using DomainModel;
+using System.IO;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using MySQL.Data.EntityFrameworkCore.Extensions;
+
+namespace AspNet5MultipleProject
+{
+    public class Startup
+    {
+        public Startup(IHostingEnvironment env)
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddJsonFile("config.json", optional: true, reloadOnChange: true);
+
+            Configuration = builder.Build();
+        }
+
+        public IConfigurationRoot Configuration { get; set; }
+
+        public void ConfigureServices(IServiceCollection services)
+        {
+            DataProviderHelper.AddMySqlProvider(services, Configuration);
+
+            services.AddMvc().AddJsonOptions(options =>
+            {
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            });
+        }
+
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        {
+            loggerFactory.AddConsole();
+            loggerFactory.AddDebug();
+
+            app.UseStaticFiles();
+
+            app.UseMvc();
+        }
+
+        public static void Main(string[] args)
+        {
+            var host = new WebHostBuilder()
+                .UseKestrel()
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseStartup<Startup>()
+                .Build();
+
+            host.Run();
+        }
+    }
+
+    public static class DataProviderHelper
+    {
+        public static void AddMySqlProvider(IServiceCollection services, IConfigurationRoot configuration)
+        {
+            //Use a MySQL database
+            var sqlConnectionString = configuration.GetConnectionString("DataAccessMySqlProvider");
+
+            services.AddDbContext<DomainModelMySqlContext>(options =>
+                options.UseMySQL(
+                    sqlConnectionString,
+                    b => b.MigrationsAssembly("Web")
+                )
+            );
+
+            services.AddScoped<IDataAccessProvider, DataAccessMySqlProvider.DataAccessMySqlProvider>();
+        }
+
+        // Use a SQLite database
+        // var sqlConnectionString = Configuration.GetConnectionString("DataAccessSqliteProvider");
+
+        //services.AddDbContext<DomainModelSqliteContext>(options =>
+        //    options.UseSqlite(
+        //        sqlConnectionString,
+        //        b => b.MigrationsAssembly("AspNet5MultipleProject")
+        //    )
+        //);
+
+        //services.AddScoped<IDataAccessProvider, DataAccessSqliteProvider.DataAccessSqliteProvider>();
+
+        // Use a MS SQL Server database
+        // var sqlConnectionString = Configuration.GetConnectionString("DataAccessMsSqlServerProvider");
+
+        //services.AddDbContext<DomainModelMsSqlServerContext>(options =>
+        //    options.UseSqlServer(
+        //        sqlConnectionString,
+        //        b => b.MigrationsAssembly("AspNet5MultipleProject")
+        //    )
+        //);
+
+        //services.AddScoped<IDataAccessProvider, DataAccessMsSqlServerProvider.DataAccessMsSqlServerProvider>();
+
+        //Use a PostgreSQL database
+        //var sqlConnectionString = Configuration.GetConnectionString("DataAccessPostgreSqlProvider");
+
+        //services.AddDbContext<DomainModelPostgreSqlContext>(options =>
+        //    options.UseNpgsql(
+        //        sqlConnectionString,
+        //        b => b.MigrationsAssembly("AspNet5MultipleProject")
+        //    )
+        //);
+
+        //services.AddScoped<IDataAccessProvider, DataAccessPostgreSqlProvider.DataAccessPostgreSqlProvider>();
+    }
+}

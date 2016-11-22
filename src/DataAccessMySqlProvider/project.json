@@ -1,0 +1,14 @@
+﻿{
+  "dependencies": {
+    "Microsoft.NETCore.App": {
+      "version": "1.1.0",
+      "type": "platform"
+    },
+    "DomainModel": "*",
+    "MySql.Data.EntityFrameworkCore": "7.0.6-IR31"
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {}
+  }
+}
