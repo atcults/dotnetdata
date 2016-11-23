@@ -40,6 +40,7 @@ namespace DotNetData
             loggerFactory.AddConsole();
             loggerFactory.AddDebug();
 
+            app.UseDefaultFiles();
             app.UseStaticFiles();
 
             app.UseMvc();
@@ -48,6 +49,7 @@ namespace DotNetData
         public static void Main(string[] args)
         {
             var host = new WebHostBuilder()
+                .UseIISIntegration()
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()
