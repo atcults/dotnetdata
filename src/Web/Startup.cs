@@ -1,15 +1,15 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
+﻿using System.IO;
 using DataAccessMySqlProvider;
 using DomainModel;
-using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using MySQL.Data.EntityFrameworkCore.Extensions;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using MySQL.Data.Entity.Extensions;
+using Newtonsoft.Json;
 
-namespace AspNet5MultipleProject
+namespace DotNetData
 {
     public class Startup
     {

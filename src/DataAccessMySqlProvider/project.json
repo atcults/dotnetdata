@@ -5,7 +5,7 @@
       "type": "platform"
     },
     "DomainModel": "*",
-    "MySql.Data.EntityFrameworkCore": "7.0.6-IR31"
+    "SapientGuardian.EntityFrameworkCore.MySql": "7.1.14"
   },
 
   "frameworks": {

@@ -3,7 +3,7 @@ using DomainModel;
 using DomainModel.Model;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AspNet5MultipleProject.Controllers
+namespace DotNetData.Controllers
 {
     [Route("api/[controller]")]
     public class DataEventRecordsController : Controller
