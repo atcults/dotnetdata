@@ -1,0 +1,27 @@
+﻿{
+  "dependencies": {
+    "Microsoft.NETCore.App": {
+      "version": "1.1.0",
+      "type": "platform"
+    },
+    "DomainModel": "*",
+    "DataAccessMsSqlServerProvider": "*",
+    "DataAccessMySqlProvider": "*",
+    "Web": "*",
+    "Microsoft.DotNet.InternalAbstractions": "1.0.500-preview2-1-003177",
+    "xunit": "2.2.0-beta4-build3444",
+    "dotnet-test-xunit": "2.2.0-preview2-build1029"
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {}
+  },
+
+  "testRunner": "xunit",
+
+  "publishOptions": {
+    "include": [
+      "config.json"
+    ]
+  }
+}

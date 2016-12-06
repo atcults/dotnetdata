@@ -17,6 +17,7 @@ namespace DataAccessMySqlProvider
         {
             _context = context;
             _logger = loggerFactory.CreateLogger("DataAccessMySqlProvider");
+            _logger.LogDebug("In constructor");
         }
 
         public void AddDataEventRecord(DataEventRecord dataEventRecord)

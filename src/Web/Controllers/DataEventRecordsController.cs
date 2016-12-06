@@ -2,6 +2,7 @@
 using DomainModel;
 using DomainModel.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace DotNetData.Controllers
 {
@@ -10,14 +11,18 @@ namespace DotNetData.Controllers
     {
         private readonly IDataAccessProvider _dataAccessProvider;
 
-        public DataEventRecordsController(IDataAccessProvider dataAccessProvider)
+        private readonly ILogger _logger;
+
+        public DataEventRecordsController(IDataAccessProvider dataAccessProvider, ILogger<DataEventRecordsController> logger)
         {
+            _logger = logger;
             _dataAccessProvider = dataAccessProvider;
         }
 
         [HttpGet]
         public IEnumerable<DataEventRecord> Get()
         {
+            _logger.LogDebug("Get request");
             return _dataAccessProvider.GetDataEventRecords();
         }
 
