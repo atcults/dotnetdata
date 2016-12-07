@@ -1,11 +1,11 @@
-﻿using System;
-using System.IO;
-using DataAccessMySqlProvider;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using Xunit;
-using MySQL.Data.EntityFrameworkCore.Extensions;
+﻿// using System;
+// using System.IO;
+// using DataAccessMySqlProvider;
+// using Microsoft.EntityFrameworkCore;
+// using Microsoft.Extensions.Configuration;
+// using Microsoft.Extensions.Logging;
+// using Xunit;
+// using MySQL.Data.EntityFrameworkCore.Extensions;
 
 namespace IntegrationTest
 {
