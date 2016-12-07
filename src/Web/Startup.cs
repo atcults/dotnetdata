@@ -61,37 +61,37 @@ namespace DotNetData
 
     public static class DataProviderHelper
     {
-//        public static void AddMySqlProvider(IServiceCollection services, IConfigurationRoot configuration)
-//        {
-//            //Use a MySQL database
-//            var sqlConnectionString = configuration.GetConnectionString("DataAccessMySqlProvider");
-//
-//            services.AddDbContext<DomainModelMySqlContext>(options =>
-//                options.UseMySQL(
-//                    sqlConnectionString,
-//                    b => b.MigrationsAssembly("Web")
-//                )
-//            );
-//
-//            services.AddScoped<IDataAccessProvider, DataAccessMySqlProvider.DataAccessMySqlProvider>();
-//        }
+        //        public static void AddMySqlProvider(IServiceCollection services, IConfigurationRoot configuration)
+        //        {
+        //            //Use a MySQL database
+        //            var sqlConnectionString = configuration.GetConnectionString("DataAccessMySqlProvider");
+        //
+        //            services.AddDbContext<DomainModelMySqlContext>(options =>
+        //                options.UseMySQL(
+        //                    sqlConnectionString,
+        //                    b => b.MigrationsAssembly("Web")
+        //                )
+        //            );
+        //
+        //            services.AddScoped<IDataAccessProvider, DataAccessMySqlProvider.DataAccessMySqlProvider>();
+        //        }
 
-//         Use a SQLite database
-//         var sqlConnectionString = Configuration.GetConnectionString("DataAccessSqliteProvider");
-//
-//        services.AddDbContext<DomainModelSqliteContext>(options =>
-//            options.UseSqlite(
-//                sqlConnectionString,
-//                b => b.MigrationsAssembly("AspNet5MultipleProject")
-//            )
-//        );
-//
-//        services.AddScoped<IDataAccessProvider, DataAccessSqliteProvider.DataAccessSqliteProvider>();
+        //         Use a SQLite database
+        //         var sqlConnectionString = Configuration.GetConnectionString("DataAccessSqliteProvider");
+        //
+        //        services.AddDbContext<DomainModelSqliteContext>(options =>
+        //            options.UseSqlite(
+        //                sqlConnectionString,
+        //                b => b.MigrationsAssembly("AspNet5MultipleProject")
+        //            )
+        //        );
+        //
+        //        services.AddScoped<IDataAccessProvider, DataAccessSqliteProvider.DataAccessSqliteProvider>();
 
         public static void AddMsSqlProvider(IServiceCollection services, IConfigurationRoot configuration)
         {
-             //Use a MS SQL Server database
-             var sqlConnectionString = configuration.GetConnectionString("DataAccessMsSqlServerProvider");
+            //Use a MS SQL Server database
+            var sqlConnectionString = configuration.GetConnectionString("DataAccessMsSqlServerProvider");
 
             services.AddDbContext<DomainModelMsSqlServerContext>(options =>
                 options.UseSqlServer(
@@ -104,16 +104,16 @@ namespace DotNetData
 
         }
 
-//        Use a PostgreSQL database
-//        var sqlConnectionString = Configuration.GetConnectionString("DataAccessPostgreSqlProvider");
-//
-//        services.AddDbContext<DomainModelPostgreSqlContext>(options =>
-//            options.UseNpgsql(
-//                sqlConnectionString,
-//                b => b.MigrationsAssembly("AspNet5MultipleProject")
-//            )
-//        );
-//
-//        services.AddScoped<IDataAccessProvider, DataAccessPostgreSqlProvider.DataAccessPostgreSqlProvider>();
+        //        Use a PostgreSQL database
+        //        var sqlConnectionString = Configuration.GetConnectionString("DataAccessPostgreSqlProvider");
+        //
+        //        services.AddDbContext<DomainModelPostgreSqlContext>(options =>
+        //            options.UseNpgsql(
+        //                sqlConnectionString,
+        //                b => b.MigrationsAssembly("AspNet5MultipleProject")
+        //            )
+        //        );
+        //
+        //        services.AddScoped<IDataAccessProvider, DataAccessPostgreSqlProvider.DataAccessPostgreSqlProvider>();
     }
 }
