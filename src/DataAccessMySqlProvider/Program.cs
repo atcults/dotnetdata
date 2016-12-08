@@ -16,7 +16,7 @@ namespace DataAccessMySqlProvider
         DomainModelMySqlContext IDbContextFactory<DomainModelMySqlContext>.Create(DbContextFactoryOptions options)
         {
             var builder = new DbContextOptionsBuilder<DomainModelMySqlContext>();
-            builder.UseMySQL("Data Source=.\\sqlexpress;Initial Catalog=dotnetdata;Integrated Security=True;", b => b.MigrationsAssembly("DataAccessMySqlProvider"));
+            builder.UseMySQL("server=localhost;userid=root;password=;database=dotnetdata;", b => b.MigrationsAssembly("DataAccessMySqlProvider"));
             return new DomainModelMySqlContext(builder.Options);
         }
     }
