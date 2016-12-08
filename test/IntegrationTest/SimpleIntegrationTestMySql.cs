@@ -1,22 +1,23 @@
-﻿// using System;
-// using System.IO;
-// using DataAccessMySqlProvider;
-// using Microsoft.EntityFrameworkCore;
-// using Microsoft.Extensions.Configuration;
-// using Microsoft.Extensions.Logging;
-// using Xunit;
-// using MySQL.Data.EntityFrameworkCore.Extensions;
+﻿using System;
+using System.IO;
+using DataAccessMySqlProvider;
+using DomainModel.Model;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using MySQL.Data.Entity.Extensions;
+using Xunit;
 
 namespace IntegrationTest
 {
-    /*public class SimpleIntegrationTest : IDisposable
+    public class SimpleIntegrationTestMySql : IDisposable
     {
         private readonly DomainModelMySqlContext _context;
 
         public static ILoggerFactory LoggerFactory;
         public static IConfigurationRoot Configuration;
 
-        public SimpleIntegrationTest()
+        public SimpleIntegrationTestMySql()
         {
             // work with with a builder using multiple calls
             var configBuilder = new ConfigurationBuilder();
@@ -31,13 +32,10 @@ namespace IntegrationTest
             //Use a MySQL database
             var sqlConnectionString = Configuration.GetConnectionString("DataAccessMySqlProvider");
 
-            Console.Write("Hello");
-
             var dbContextBuilder = new DbContextOptionsBuilder<DomainModelMySqlContext>();
-            dbContextBuilder.UseMySQL(sqlConnectionString,
-                    b => b.MigrationsAssembly("Web"));
+            dbContextBuilder.UseMySQL(sqlConnectionString, b => b.MigrationsAssembly("DataAccessMySqlProvider"));
 
-            _context = new DomainModelMySqlContext(dbContextBuilder.Options, LoggerFactory);
+            _context = new DomainModelMySqlContext(dbContextBuilder.Options);
 
             _context.Database.Migrate();
 
@@ -50,7 +48,6 @@ namespace IntegrationTest
 
             _context.DataEventRecords.Add(new DataEventRecord
             {
-                DataEventRecordId = 1,
                 Description = "New description",
                 Timestamp = new DateTime()
             });
@@ -66,5 +63,5 @@ namespace IntegrationTest
         {
             _context.Database.EnsureDeleted();
         }
-    }*/
+    }
 }
