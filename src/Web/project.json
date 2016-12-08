@@ -11,7 +11,7 @@
     },
     "DomainModel": "*",
     "DataAccessSqliteProvider": "*",
-    "DataAccessMsSqlServerProvider": "*",
+    "DataAccessMsSqlProvider": "*",
     "DataAccessPostgreSqlProvider": "*",
     "DataAccessMySqlProvider": "*",
     "Microsoft.AspNetCore.Diagnostics": "1.1.0",

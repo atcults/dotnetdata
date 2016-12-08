@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using DataAccessMsSqlServerProvider;
+using DataAccessMsSqlProvider;
 using DomainModel;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -92,14 +92,14 @@ namespace DotNetData
             //Use a MS SQL Server database
             var sqlConnectionString = configuration.GetConnectionString("DataAccessMsSqlServerProvider");
 
-            services.AddDbContext<DomainModelMsSqlServerContext>(options =>
+            services.AddDbContext<DomainModelMsSqlContext>(options =>
                 options.UseSqlServer(
                     sqlConnectionString,
                     b => b.MigrationsAssembly("DataAccessMsSqlServerProvider")
                 )
             );
 
-            services.AddScoped<IDataAccessProvider, DataAccessMsSqlServerProvider.DataAccessMsSqlServerProvider>();
+            services.AddScoped<IDataAccessProvider, DataAccessMsSqlProvider.DataAccessMsSqlProvider>();
 
         }
 
