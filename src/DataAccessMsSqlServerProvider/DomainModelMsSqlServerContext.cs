@@ -4,13 +4,13 @@ using DomainModel.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccessMsSqlServerProvider
-{ 
-    // >dotnet ef migration add testMigration
+{
+    //> dotnet ef migration add testMigration
     public class DomainModelMsSqlServerContext : DbContext
     {
-        public DomainModelMsSqlServerContext(DbContextOptions<DomainModelMsSqlServerContext> options) :base(options)
+        public DomainModelMsSqlServerContext(DbContextOptions<DomainModelMsSqlServerContext> options) : base(options)
         { }
-        
+
         public DbSet<DataEventRecord> DataEventRecords { get; set; }
 
         public DbSet<SourceInfo> SourceInfos { get; set; }

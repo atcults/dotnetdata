@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace Web.Migrations
+namespace DataAccessMsSqlServerProvider.Migrations
 {
     public partial class Initial : Migration
     {

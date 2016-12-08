@@ -95,7 +95,7 @@ namespace DotNetData
             services.AddDbContext<DomainModelMsSqlServerContext>(options =>
                 options.UseSqlServer(
                     sqlConnectionString,
-                    b => b.MigrationsAssembly("Web")
+                    b => b.MigrationsAssembly("DataAccessMsSqlServerProvider")
                 )
             );
 

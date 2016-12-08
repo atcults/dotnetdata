@@ -5,13 +5,12 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using DataAccessMsSqlServerProvider;
 
-namespace Web.Migrations
+namespace DataAccessMsSqlServerProvider.Migrations
 {
     [DbContext(typeof(DomainModelMsSqlServerContext))]
-    [Migration("20161206120446_Initial")]
-    partial class Initial
+    partial class DomainModelMsSqlServerContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.0-rtm-22752")

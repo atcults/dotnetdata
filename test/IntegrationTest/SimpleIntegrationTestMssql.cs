@@ -32,7 +32,7 @@ namespace IntegrationTest
             var sqlConnectionString = Configuration.GetConnectionString("DataAccessMsSqlServerProvider");
 
             var dbContextBuilder = new DbContextOptionsBuilder<DomainModelMsSqlServerContext>();
-            dbContextBuilder.UseSqlServer(sqlConnectionString, b => b.MigrationsAssembly("Web"));
+            dbContextBuilder.UseSqlServer(sqlConnectionString, b => b.MigrationsAssembly("DataAccessMsSqlServerProvider"));
 
             _context = new DomainModelMsSqlServerContext(dbContextBuilder.Options);
 
