@@ -3,15 +3,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using DataAccessMsSqlServerProvider;
+using DataAccessMsSqlProvider;
 
-namespace DataAccessMsSqlServerProvider.Migrations
+namespace DataAccessMsSqlProvider.Migrations
 {
-    [DbContext(typeof(DomainModelMsSqlServerContext))]
-    [Migration("20161208113149_Initial")]
-    partial class Initial
+    [DbContext(typeof(DomainModelMsSqlContext))]
+    partial class DomainModelMsSqlContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.0-rtm-22752")

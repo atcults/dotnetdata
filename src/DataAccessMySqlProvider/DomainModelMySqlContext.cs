@@ -2,20 +2,14 @@
 using System.Linq;
 using DomainModel.Model;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 
 namespace DataAccessMySqlProvider
 { 
     // >dotnet ef migration add testMigration
     public class DomainModelMySqlContext : DbContext
     {
-        private readonly ILogger _logger;
-
-        public DomainModelMySqlContext(DbContextOptions options, ILoggerFactory loggerFactory) : base(options)
-        {
-            _logger = loggerFactory.CreateLogger("DomainModelMySqlContext");
-            _logger.LogDebug("In constructor");
-        }
+        public DomainModelMySqlContext(DbContextOptions options) : base(options)
+        {  }
         
         public DbSet<DataEventRecord> DataEventRecords { get; set; }
 

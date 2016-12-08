@@ -1,7 +1,7 @@
 ﻿{
   "ConnectionStrings": {
     "DataAccessSqliteProvider": "Data Source=dataeventrecords.sqlite",
-    "DataAccessMsSqlServerProvider": "Data Source=.\\sqlexpress;Initial Catalog=dotnetdata;Integrated Security=True;",
+    "DataAccessMsSqlProvider": "Data Source=.\\sqlexpress;Initial Catalog=dotnetdata;Integrated Security=True;",
     "DataAccessPostgreSqlProvider": "User ID=postgres;Password=postgres;Host=localhost;Port=5432;Database=dotnetdata;Pooling=true;",
     "DataAccessMySqlProvider": "server=localhost;userid=root;password=;database=dotnetdata;"
   }

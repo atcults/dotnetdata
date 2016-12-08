@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using DataAccessMsSqlServerProvider;
+using DataAccessMsSqlProvider;
 using DomainModel.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -11,7 +11,7 @@ namespace IntegrationTest
 {
     public class SimpleIntegrationTestMssql : IDisposable
     {
-        private readonly DomainModelMsSqlServerContext _context;
+        private readonly DomainModelMsSqlContext _context;
 
         public static ILoggerFactory LoggerFactory;
         public static IConfigurationRoot Configuration;
@@ -29,12 +29,12 @@ namespace IntegrationTest
                 .AddDebug();
 
             //Use a MySQL database
-            var sqlConnectionString = Configuration.GetConnectionString("DataAccessMsSqlServerProvider");
+            var sqlConnectionString = Configuration.GetConnectionString("DataAccessMsSqlProvider");
 
-            var dbContextBuilder = new DbContextOptionsBuilder<DomainModelMsSqlServerContext>();
-            dbContextBuilder.UseSqlServer(sqlConnectionString, b => b.MigrationsAssembly("DataAccessMsSqlServerProvider"));
+            var dbContextBuilder = new DbContextOptionsBuilder<DomainModelMsSqlContext>();
+            dbContextBuilder.UseSqlServer(sqlConnectionString, b => b.MigrationsAssembly("DataAccessMsSqlProvider"));
 
-            _context = new DomainModelMsSqlServerContext(dbContextBuilder.Options);
+            _context = new DomainModelMsSqlContext(dbContextBuilder.Options);
 
             _context.Database.Migrate();
 

@@ -6,17 +6,17 @@ using DomainModel.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace DataAccessMsSqlServerProvider
+namespace DataAccessMsSqlProvider
 {
-    public class DataAccessMsSqlServerProvider : IDataAccessProvider
+    public class DataAccessMsSqlProvider : IDataAccessProvider
     {
-        private readonly DomainModelMsSqlServerContext _context;
+        private readonly DomainModelMsSqlContext _context;
         private readonly ILogger _logger;
 
-        public DataAccessMsSqlServerProvider(DomainModelMsSqlServerContext context, ILoggerFactory loggerFactory)
+        public DataAccessMsSqlProvider(DomainModelMsSqlContext context, ILoggerFactory loggerFactory)
         {
             _context = context;
-            _logger = loggerFactory.CreateLogger("DataAccessMsSqlServerProvider");
+            _logger = loggerFactory.CreateLogger("DataAccessMsSqlProvider");
         }
 
         public void AddDataEventRecord(DataEventRecord dataEventRecord)
